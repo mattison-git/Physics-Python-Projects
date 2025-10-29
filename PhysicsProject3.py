@@ -13,8 +13,8 @@ velocity = 3.0
 
 
 times = [0.0]
-list_of_x = [x_position]
-list_of_velocity = [velocity]
+x_values = [x_position]
+y_values = [velocity]
 
 
 while times[-1] < time:
@@ -22,18 +22,18 @@ while times[-1] < time:
     velocity = velocity + acceleration * dt
     x_position = x_position + velocity * dt
     times.append(times[-1] + dt)
-    list_of_x.append(x_position)
-    list_of_velocity.append(velocity)
+    x_values.append(x_position)
+    y_values.append(velocity)
 
 
 plt.figure(figsize=(10,5))
 plt.subplot(2,1,1)
-plt.plot(times, list_of_x)
+plt.plot(times, x_values)
 plt.ylabel("x (m)")
 plt.title("Graph of mass-spring system")
 
 plt.subplot(2,1,2)
-plt.plot(times, list_of_velocity)
+plt.plot(times, y_values)
 plt.ylabel("v (m/s)")
 plt.xlabel("t (s)")
 plt.show()

@@ -30,7 +30,7 @@ def calculate_drag_acceleration(v, h, variable_density=True):
 
 def simulate(free_fall_type):
     height = height0
-    velocity = velocity0  # positive = downward
+    velocity = velocity0  
     x_values = []
     y_values = []
     
@@ -39,18 +39,18 @@ def simulate(free_fall_type):
         y_values.append(height)
         
         if free_fall_type == 'i':
-            acceleration = 9.8  # positive downward
+            acceleration = 9.8 
         elif free_fall_type == 'ii':
             acceleration = calculate_gravity(height)
         elif free_fall_type == 'iii':
             gravity = calculate_gravity(height)
-            # Drag opposes motion: if v>0 (falling), drag is negative (upward)
             drag = -np.sign(velocity) * calculate_drag_acceleration(velocity, height, variable_density=False)
             acceleration = gravity + drag
         elif free_fall_type == 'iv':
             gravity = calculate_gravity(height)
             drag = -np.sign(velocity) * calculate_drag_acceleration(velocity, height, variable_density=True)
-            acceleration = gravity + drag
+            acceleration = gravity + drag 
+            
         
         velocity += acceleration * dt
         height -= velocity * dt
